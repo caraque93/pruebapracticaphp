@@ -14,7 +14,7 @@
         <div class="col-4">
             <form method="POST" name="form-tiendas" class="mb-4" action="#">
                 <div class="form-group">
-                    <label for="nombreTienda" >Nombre</label>
+                    <label for="nombreTienda">Nombre</label>
                     <input type="text" name="nombreTienda" class="form-control">
                 </div>
                 <div class="form-group">
