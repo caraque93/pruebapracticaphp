@@ -1,8 +1,8 @@
 <?php
 
-require_once "../libs/DB.php";
+//require_once "../libs/DB.php";
 
-class Modelo extends DB{
+class Modelo extends DB {
 
     public $db;
 
@@ -16,6 +16,7 @@ class Modelo extends DB{
             $sql = "INSERT INTO ".$tabla." (".implode(", ", $llaves).") \n";
             $sql .= "VALUES ( :".implode(", :",$llaves).")";
             $q = $this->db->prepare($sql)->execute($datos);
+            
             return $q;
         } catch (PDOException $e) {
             $_SESSION['mensaje'] = $e->getMessage();
@@ -23,10 +24,34 @@ class Modelo extends DB{
             $_SESSION['mensaje'] = $e->getMessage();
         }
     }
+    public function consultarRegistro($query){
+        $resultado = $this->db->query($query);
+        if ($resultado->rowCount() == 1) {
+            return $resultado;
+        }else{
+            return false;
+        }
+    }
+    public function obtenerTodos($query){
+        try{
+            $resultado = $this->db->query($query);
+            return $resultado;	
+        }catch(PDOException $e) {
+            $_SESSION['mensaje'] = $e->getMessage();
+        }	
+    }
 }
 
 
-// $experimento = new Modelo();
+//  $experimento = new Modelo();
+
+//  $result = $experimento->obtenerTodos("SELECT * FROM tiendas");
+
+//  foreach ($result as $r) {
+//      echo "<pre>";
+//      var_dump($r);
+//      echo "</pre>";
+//  }
 // $arr = array( 'nombre' => 'La esquina',
 //                 'fecha_apertura' => '2009-05-14');
 // $result = $experimento->insertar('tiendas', $arr);

@@ -5,17 +5,12 @@ $page = $_GET['page'];
 
 
 if (!empty($page)) {
-  #http://curso-php.test/cms/index.php?page=buscar
+  
   $data = array(
-    'dashboard' => array('model' => 'Admin', 'view' => 'dashboard', 'controller' => 'AdminController'),
-    'registro' => array('model' => 'Usuario', 'view' => 'registro', 'controller' => 'UsuarioController'),
+    'tiendas' => array('model' => 'Tiendas', 'view' => 'tiendas', 'controller' => 'TiendasController'),
+    'productos' => array('model' => 'Productos', 'view' => 'productos', 'controller' => 'ProductosController'),
     'login' => array('model' => 'Usuario', 'view' => 'login', 'controller' => 'UsuarioController'),
-    'blog' => array('model' => 'Blog', 'view' => 'index', 'controller' => 'BlogController'),
-    'publicar' => array('model' => 'Blog', 'view' => 'publicar', 'controller' => 'BlogController'), #Crear un artículo
-    'articulo' => array('model' => 'Blog', 'view' => 'leerArticulo', 'controller' => 'BlogController'), #Mostrar la información del artículo
-    'buscar' => array('model' => 'Blog', 'view' => 'resultadoBusqueda', 'controller' => 'BlogController'), #Encargado de buscar
-    'adminUsuarios' =>  array('model' => 'Usuario' , 'view' => 'adminUsuarios',  'controller' => 'UsuarioController'),
-    'singleUsuario' =>  array('model' => 'Usuario' , 'view' => 'singleUsuario',  'controller' => 'UsuarioController')
+    'blog' => array('model' => 'Blog', 'view' => 'index', 'controller' => 'BlogController')
   );
 
   foreach($data as $key => $components) {
@@ -34,7 +29,7 @@ if (!empty($page)) {
 
   }
 } else {
-  header('Location: index.php?page=blog');
+  header('Location: index.php?page=tiendas');
 }
 
 
