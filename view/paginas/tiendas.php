@@ -56,7 +56,7 @@ $tabla = $tienda->mostrarTiendas();
             ?>
                 <tr>
                         <td><?=$r['id']?></td>
-                        <td><?=$r['nombre']?></td>
+                        <td> <a href="index.php?page=productos&tienda=<?=$r['id']?>"><?=$r['nombre']?></a> </td>
                         <td><?=$r['fecha_apertura']?></td>
                 </tr>
             
