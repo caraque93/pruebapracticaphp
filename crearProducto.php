@@ -10,8 +10,10 @@ if (isset($_POST['nombreProd'])) {
     $validarImagen = $producto->validarImagen($_FILES['imagen']);
     
     $respuestaValidacion = json_decode($validarImagen, true);
+    $valValor = $producto->validarValor($_POST['valorProd']);
     
-    if($respuestaValidacion['codigo'] == 200){
+    if($respuestaValidacion['codigo'] == 200 && $valValor){
+
         $datos =$datos = array(
             'nombre' => $_POST['nombreProd'],
             'descripcion' => $_POST['descripcionProd'],

@@ -78,6 +78,12 @@ class ProductosController{
 
     private function validarTienda($id_tienda){
         return $validar = $this->db->validarTienda($id_tienda); 
-    }
+	}
+	
+	public function validarValor($valor){
+		$regex = "/^[0-9]+$/";
+		$respuesta = preg_match($regex,$valor) ? true : false;
+		return $respuesta;
+	}
     
 }

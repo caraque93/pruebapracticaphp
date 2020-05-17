@@ -19,9 +19,9 @@ class Modelo extends DB {
             
             return $q;
         } catch (PDOException $e) {
-            $_SESSION['mensaje'] = $e->getMessage();
+            $mensaje = $e->getMessage();
         } catch (Exception $e) {
-            $_SESSION['mensaje'] = $e->getMessage();
+            $mensaje = $e->getMessage();
         }
     }
     public function consultarRegistro($query){
@@ -37,7 +37,17 @@ class Modelo extends DB {
             $resultado = $this->db->query($query);
             return $resultado;	
         }catch(PDOException $e) {
-            $_SESSION['mensaje'] = $e->getMessage();
+            $mensaje = $e->getMessage();
+        }	
+    }
+
+    public function eliminarRegistro($tabla,$idTienda){
+        try{
+            $sql = "DELETE FROM ".$tabla." WHERE id = :id" ;
+            $resultado = $this->db->prepare($sql)->execute($idTienda);
+            return $resultado;	
+        }catch(PDOException $e) {
+            $mensaje = $e->getMessage();
         }	
     }
 }

@@ -22,4 +22,9 @@ class Tiendas {
 
         return $respuestas;
     }
+
+    public function eliminarTienda($idTienda){
+        $query = "DELETE FROM tiendas WHERE id = '".$idTienda."'";
+        $respuesta = $this->objdb->eliminarRegistro('tiendas',$idTienda);
+    }
 }
