@@ -40,25 +40,25 @@ $listProd = $producto->mostrarProductos($idTienda);
         <div class="col-4">
 
             <h2>Productos</h2>
-            <form method="POST" name="form-prod" class="mb-4" action="#" enctype="multipart/form-data">
+            <form method="POST" name="form-prod" class="mb-4" id="form-prod"  enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nombreProd">Nombre del Producto</label>
-                    <input type="text" name="nombreProd" id="nombreProducto" class="form-control">
+                    <input type="text" name="nombreProd" id="nombreProd" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="descripcionProducto">Descripción</label>
-                    <textarea name="descripcionProd" id="descripcionProducto" class="form-control" rows="5"></textarea>
+                    <textarea name="descripcionProd" id="descripcionProd" class="form-control" rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="valorProducto">Valor</label>
-                    <input type="text" name="valorProd" class="form-control">
+                    <input type="text" name="valorProd" id="valorProd" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="imagen" >Imagen</label>
-                    <input type="file" name="imagen" class="form-control" id="portada">
+                    <input type="file" name="imagen" class="form-control" id="imagen">
                 </div>
 
                 
@@ -69,7 +69,7 @@ $listProd = $producto->mostrarProductos($idTienda);
             </form>
         </div>
         <div class="col-8 border-left">
-        <div class="row blog-post blog__post">
+        <div class="row blog-post" id="listProd">
              
              <?php
             if (!empty($listProd)) {
@@ -109,6 +109,6 @@ $listProd = $producto->mostrarProductos($idTienda);
         </div>
     </div>
 </div>
-    
+<script src="assets/js/productos.js"></script>
 </body>
 </html>

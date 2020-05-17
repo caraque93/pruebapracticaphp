@@ -14,10 +14,10 @@ function autoLoad($class){
 				continue;
 			}
 			$rutaArchivo = $carpeta.DIRECTORY_SEPARATOR.$archivo;
-			$NrutaArchivo = substr($rutaArchivo, 2);
+			//$NrutaArchivo = substr($rutaArchivo, 2);
 
 			if ($archivo == $nombreArchivo) {
-				require_once $NrutaArchivo;
+				require_once $rutaArchivo;
 			}
 
 		}

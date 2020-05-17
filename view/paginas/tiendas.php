@@ -1,20 +1,20 @@
 <?php
-$tienda = new TiendasController();
+// $tienda = new TiendasController();
 
-if (isset($_POST['agregarTienda'])) {
-    $datos = array( 
-        'nombre' => $_POST['nombreTienda'],
-        'fecha_apertura' => $_POST['fechaApertura']
-    ); 
+// if (isset($_POST['agregarTienda'])) {
+//     $datos = array( 
+//         'nombre' => $_POST['nombreTienda'],
+//         'fecha_apertura' => $_POST['fechaApertura']
+//     ); 
 
-    $respuesta = $tienda->agregarTienda($datos);
+//     $respuesta = $tienda->agregarTienda($datos);
 
     
     
    
-}
+// }
 
-$tabla = $tienda->mostrarTiendas();
+// $tabla = $tienda->mostrarTiendas();
 
 
 
@@ -24,17 +24,17 @@ $tabla = $tienda->mostrarTiendas();
     <div class="row">
         <div class="col-4">
             <h2>Tiendas</h2>
-            <form method="POST" name="form-tiendas" class="mb-4" action="#">
+            <form  name="form-tiendas" class="mb-4" id="form-tiendas">
                 <div class="form-group">
                     <label for="nombreTienda">Nombre</label>
-                    <input type="text" name="nombreTienda" class="form-control">
+                    <input type="text" name="nombreTienda" id="nombreTienda"class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="fechaApertura">Fecha de Apertura</label>
-                    <input type="date" name="fechaApertura" class="form-control" >
+                    <input type="date" name="fechaApertura" id="fechaApertura"class="form-control" >
                 </div>
                 
-                <button type="submit" name="agregarTienda" class="btn btn-dark">Agregar</button>
+                <button type="submit" name="agregarTienda" id="agregarTienda" class="btn btn-dark">Agregar</button>
 
 
             </form>
@@ -55,9 +55,9 @@ $tabla = $tienda->mostrarTiendas();
                     foreach ($tabla as $r) {
             ?>
                 <tr>
-                        <td><?=$r['id']?></td>
+                        <!-- <td><?=$r['id']?></td>
                         <td> <a href="index.php?page=productos&tienda=<?=$r['id']?>"><?=$r['nombre']?></a> </td>
-                        <td><?=$r['fecha_apertura']?></td>
+                        <td><?=$r['fecha_apertura']?></td> -->
                 </tr>
             
             
@@ -73,6 +73,8 @@ $tabla = $tienda->mostrarTiendas();
         </div>
     </div>
 </div>
+
+<script src="assets/js/tiendas.js"></script>
     
 </body>
 </html>
